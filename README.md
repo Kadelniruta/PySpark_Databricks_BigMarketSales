@@ -1,83 +1,111 @@
-📌 PySpark DataFrame Operations – Learning Notebook
-📖 Overview
+📊 PySpark DataFrame Operations – Documentation
+📌 Project Overview
 
-This repository contains my hands-on PySpark learning notebook, where I explored and practiced core PySpark DataFrame operations using Databricks.
-The notebook covers data reading, schema handling, transformations, filtering, aggregations, string & date functions, and more.
+This repository contains my hands-on PySpark learning project, developed using Databricks Notebook.
+The goal of this project is to understand and practice core PySpark DataFrame operations that are commonly used in data engineering and big data processing.
 
-This project helped me build a strong foundation in big data processing using Apache Spark (PySpark).
+The notebook demonstrates how to read data, define schemas, clean data, transform columns, handle nulls, apply aggregations, and work with date & string functions using PySpark.
 
-🛠️ Technologies Used
+🛠️ Tech Stack
 
 Apache Spark (PySpark)
 
-Databricks Notebook
+Databricks
 
 Python
 
-CSV & JSON Data Sources
+CSV & JSON Files
 
-📂 Data Sources
+📂 Dataset Information
 
-JSON File
+JSON Dataset
 
-Used to understand JSON reading and schema inference
+Used to practice JSON reading and schema inference
 
-CSV File (BigMart Sales Dataset)
+CSV Dataset (BigMart Sales)
 
-Used for most DataFrame operations and transformations
+Used for schema definition, transformations, filtering, aggregations, and analysis
 
-🚀 Concepts Covered
-🔹 Data Reading
+📥 Data Reading
+JSON Data
 
-Reading JSON files
+Read JSON files using spark.read.format("json")
 
-Reading CSV files
+Used options:
 
-Using inferSchema
+inferSchema
 
-Handling headers
+header
 
-Working with Databricks file system (dbutils.fs.ls)
+multiline
 
-🔹 Schema Management
+CSV Data
 
-Auto-inferred schema
+Read CSV files using spark.read.format("csv")
 
-DDL Schema definition
+Used options:
 
-StructType & StructField schema
+inferSchema
 
-Schema comparison and validation
+header
 
-🔹 DataFrame Operations
+🧱 Schema Definition
 
-select() with columns
+This project demonstrates three ways of handling schema:
 
-Column alias using alias()
+1️⃣ Auto-Inferred Schema
 
-filter() with:
+Spark automatically infers column data types
 
-AND (&)
+2️⃣ DDL Schema
 
-OR (|)
+Schema defined using SQL-style DDL
 
-isin()
+Useful for performance and data consistency
 
-isNull()
+3️⃣ StructType Schema
 
-withColumn() for:
+Explicit schema using StructType and StructField
 
-Creating new columns
+Recommended for production-level pipelines
 
-Arithmetic operations
+🔍 DataFrame Operations
+Select & Alias
 
-Constants using lit()
+select() specific columns
 
-withColumnRenamed()
+Rename columns using alias()
 
-🔹 String Functions
+Filtering
 
-regexp_replace() for data standardization
+Implemented multiple real-world filtering scenarios:
+
+Filter by column value
+
+Multiple conditions using &
+
+isin() for multiple values
+
+isNull() for null checks
+
+🧩 Column Transformations
+Creating New Columns
+
+Used withColumn()
+
+Created constant columns using lit()
+
+Created derived columns using arithmetic expressions
+
+Renaming Columns
+
+Used withColumnRenamed()
+
+🔤 String Functions
+
+Applied string transformations using:
+
+regexp_replace() (data standardization)
 
 initcap()
 
@@ -85,101 +113,112 @@ upper()
 
 lower()
 
-🔹 Type Casting
+🔄 Type Casting
 
-Converting column data types using cast()
+Converted column data types using cast()
 
-Handling numeric operations safely
+Ensured correct numeric operations on string columns
 
-🔹 Sorting & Limiting
+🔃 Sorting & Limiting
 
-orderBy() / sort()
+Sorted data using:
 
-Ascending & descending sort
+orderBy()
 
-Sorting with multiple columns
+sort()
 
-limit() function
+Used:
 
-🔹 Handling Duplicates
+Ascending and descending order
 
-drop()
+Multiple-column sorting
+
+Limited rows using limit()
+
+🧹 Data Cleaning
+Dropping Columns
+
+drop() single or multiple columns
+
+Handling Duplicates
 
 dropDuplicates()
 
 distinct()
 
-🔹 Union Operations
+Handling Null Values
 
-union()
+dropna() to remove null rows
 
-unionByName()
+fillna() to replace nulls
 
-Understanding schema alignment issues
+Subset-based null handling
 
-🔹 Date Functions
+🔗 Union Operations
+
+union() → requires same column order
+
+unionByName() → matches columns by name
+
+📅 Date Functions
+
+Worked with Spark date functions:
 
 current_date()
 
-date_add()
-
-date_sub()
+date_add() and date_sub()
 
 datediff()
 
 date_format()
 
-🔹 Null Handling
+🧠 Split & Indexing
 
-dropna()
+Split string columns using split()
 
-fillna()
+Extracted values using getItem()
 
-Dropping nulls using subsets
+📊 Group By & Aggregations
 
-🔹 Split & Indexing
-
-split() function
-
-Extracting values using getItem()
-
-🔹 Group By & Aggregations
+Performed aggregations using:
 
 groupBy()
-
-Aggregation functions:
 
 sum()
 
 avg()
 
-Grouping with multiple columns
+Grouped by:
 
-Aliasing aggregated columns
+Single column
 
-🎯 Learning Outcome
+Multiple columns
 
-After completing this notebook, I gained:
+Used aliases for aggregated columns
+
+🎯 Learning Outcomes
+
+Through this project, I gained:
 
 Strong understanding of PySpark DataFrame API
 
-Ability to clean, transform, and analyze large datasets
+Hands-on experience with data transformation and cleaning
 
-Practical experience with real-world data scenarios
+Knowledge of schema management techniques
 
-Confidence to use PySpark for data engineering workflows
+Confidence to work on data engineering tasks using Spark
 
-📌 How to Use
+▶️ How to Run
 
-Clone the repository
+Clone this repository
 
-Open the notebook in Databricks
+Upload the notebook to Databricks
 
-Update file paths if needed
+Update file paths if required
 
 Run cells sequentially
 
-📎 Author
+👤 Author
 
 Niruta Kadel
 Data Enthusiast | PySpark Learner
