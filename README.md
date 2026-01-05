@@ -1,21 +1,20 @@
-# PySpark DataFrame Operations – Tutorial Project
+# 📊 PySpark DataFrame Operations – Advanced Tutorial Project
 
-This project is a **hands-on PySpark tutorial** demonstrating commonly used **DataFrame operations** such as reading data, schema definition, filtering, transformations, aggregations, and date/string functions. The notebook is designed for learners who want practical exposure to PySpark using real datasets.
+This repository contains a **complete end‑to‑end PySpark tutorial project** built by combining:
+
+* 📘 **Advanced PySpark notebook / PDF concepts**
+* 📓 **Hands‑on Databricks notebook implementation**
+* 🧪 **Real CSV and JSON datasets**
+
+The project demonstrates **beginner → advanced PySpark DataFrame operations**, making it ideal for **students, interns, and aspiring Data Engineers / Data Scientists**.
 
 ---
 
 ## 📌 Project Overview
 
-The notebook covers end-to-end PySpark DataFrame usage including:
+The goal of this project is to provide **practical exposure to PySpark** using real‑world style data. It covers the full lifecycle of working with Spark DataFrames — from **data ingestion** to **advanced analytics using window functions and UDFs**.
 
-* Reading **JSON** and **CSV** files
-* Defining schemas using multiple approaches
-* Data selection, filtering, and transformation
-* Handling nulls and duplicates
-* Sorting, grouping, and aggregations
-* Working with strings and dates
-
-The examples are executed in a **Databricks / Spark environment** using PySpark.
+All examples are executed in a **Databricks / Spark environment** using PySpark APIs.
 
 ---
 
@@ -29,83 +28,85 @@ The examples are executed in a **Databricks / Spark environment** using PySpark.
 
 ## 📂 Data Sources
 
-The following datasets are used:
+The following datasets are used throughout the project:
 
-* **JSON File**: `drivers.json`
 * **CSV File**: `BigMart Sales.csv`
+* **JSON File**: `drivers.json`
 
-Paths (Databricks volume example):
+### Example Databricks Volume Paths
 
 ```
-/Volumes/workspace/pysparkcsv/sparkjson/
 /Volumes/workspace/pysparkcsv/csvfile/
+/Volumes/workspace/pysparkcsv/sparkjson/
 ```
 
 ---
 
 ## 📖 Topics Covered
 
-### 1. Data Reading
+### 1️⃣ Data Reading
 
-* Reading JSON files using `spark.read.format('json')`
-* Reading CSV files using `spark.read.format('csv')`
-* Options such as `inferSchema`, `header`, and `multiline`
+* Reading CSV files using `spark.read.format("csv")`
+* Reading JSON files using `spark.read.format("json")`
+* Options used:
 
----
-
-### 2. Schema Definition
-
-Different schema definition techniques:
-
-* **Infer Schema**
-* **DDL Schema**
-* **StructType & StructField Schema**
+  * `inferSchema`
+  * `header`
+  * `multiline`
 
 ---
 
-### 3. Data Exploration
+### 2️⃣ Schema Definition
 
-* `display()`
+* Infer Schema
+* DDL‑based schema
+* `StructType` & `StructField` schema definition
+
+---
+
+### 3️⃣ Data Exploration
+
+* `display()` for visualization (Databricks)
 * `printSchema()`
-* `select()` and column aliasing
+* `select()` with column aliasing
+* `collect()` to bring data to driver as Row objects
 
 ---
 
-### 4. Filtering Data
+### 4️⃣ Filtering Data
 
-Examples include:
-
-* Filtering by column values
-* Multiple condition filters
-* `isin()` and `isNull()` usage
+* Filtering using column conditions
+* Multiple conditions with `AND` / `OR`
+* `isin()` usage
+* `isNull()` and `isNotNull()`
 
 ---
 
-### 5. Column Operations
+### 5️⃣ Column Operations
 
 * `withColumn()`
 * `withColumnRenamed()`
 * Creating constant columns using `lit()`
-* Column calculations
+* Arithmetic column calculations
 
 ---
 
-### 6. String Functions
+### 6️⃣ String Functions
 
 * `initcap()`
 * `upper()`
 * `lower()`
-* `regexp_replace()` for data standardization
+* `regexp_replace()` for standardization
 
 ---
 
-### 7. Type Casting
+### 7️⃣ Type Casting
 
 * Converting column data types using `cast()`
 
 ---
 
-### 8. Sorting & Limiting
+### 8️⃣ Sorting & Limiting
 
 * `orderBy()` / `sort()`
 * Sorting with multiple columns
@@ -113,79 +114,142 @@ Examples include:
 
 ---
 
-### 9. Handling Nulls
+### 9️⃣ Handling Null Values
 
-* Dropping null values using `dropna()`
-* Filling null values using `fillna()`
-* Subset-based null handling
+* `dropna()`
+* `fillna()`
+* Subset‑based null handling
 
 ---
 
-### 10. Duplicate Handling
+### 🔟 Duplicate Handling
 
 * `dropDuplicates()`
 * `distinct()`
 
 ---
 
-### 11. Union Operations
+### 1️⃣1️⃣ Union Operations
 
 * `union()`
 * `unionByName()`
 
 ---
 
-### 12. Date Functions
-
-* `current_date()`
-* `date_add()` and `date_sub()`
-* `datediff()`
-* `date_format()`
-
----
-
-### 13. Group By & Aggregations
+### 1️⃣2️⃣ Aggregations & Grouping
 
 * `groupBy()` with:
 
   * `sum()`
   * `avg()`
-* Multi-column groupings
+* Multi‑column grouping
 * Aliasing aggregated columns
 
 ---
 
-## 🚀 How to Run
+### 1️⃣3️⃣ Pivot Operations
 
-1. Upload the notebook to **Databricks** or run in a **Spark-enabled environment**
-2. Ensure datasets are available at the configured paths
+* Pivoting data using `pivot()`
+* Aggregation after pivot (e.g., average Item_MRP by Outlet_Size)
+
+---
+
+### 1️⃣4️⃣ Conditional Logic (WHEN / OTHERWISE)
+
+* Creating conditional columns using `when()` and `otherwise()`
+* Nested conditions
+* Real‑world example: veg / non‑veg classification and price‑based categories
+
+---
+
+### 1️⃣5️⃣ Joins in PySpark
+
+Implemented join types:
+
+* Inner Join
+* Left Join
+* Right Join
+* Full Outer Join (conceptual)
+* Left Semi Join (conceptual)
+* Left Anti Join
+* Cross Join (conceptual)
+
+Practical examples using **employee and department datasets**.
+
+---
+
+### 1️⃣6️⃣ Window Functions
+
+Window functions used without collapsing rows:
+
+* `row_number()`
+* `rank()`
+* `dense_rank()`
+* Cumulative Sum (`sum() over window`)
+
+Window specifications include:
+
+* `partitionBy()`
+* `orderBy()`
+* `rowsBetween()`
+
+---
+
+### 1️⃣7️⃣ User Defined Functions (UDF)
+
+* Creating Python functions
+* Registering them as PySpark UDFs
+* Applying UDFs to DataFrame columns
+
+Example: Squaring numeric column values using UDF
+
+---
+
+## 🚀 How to Run the Project
+
+1. Upload `AdvancePyspark.ipynb` / `.py` to **Databricks** or Spark environment
+2. Ensure datasets exist at configured paths
 3. Execute cells sequentially to understand each operation
 
 ---
 
-## 🎯 Learning Outcome
+## 🎯 Learning Outcomes
 
-After completing this tutorial, you will be able to:
+After completing this project, you will be able to:
 
-* Perform real-world PySpark DataFrame operations
-* Apply transformations and aggregations efficiently
-* Handle missing data and schema definitions
-* Use PySpark functions for string and date processing
+* Perform **advanced PySpark DataFrame operations**
+* Work with schemas, joins, and window functions
+* Handle real‑world data quality issues
+* Apply conditional logic and aggregations
+* Build strong foundations for **Big Data & Data Engineering roles**
 
 ---
 
 ## 📌 Future Enhancements
 
-* Add joins and window functions
-* Include performance optimization examples
-* Add unit tests using PySpark testing frameworks
+* Spark SQL queries
+* Performance optimization & caching
+* Broadcast joins
+* PySpark unit testing
+
+---
+
+## 📘 Reference Material
+
+This project is built by combining **Advanced PySpark learning material (PDF)** and **hands‑on Databricks notebook implementations**, focusing on industry‑relevant DataFrame processing techniques.
 
 ---
 
 ## 📄 License
 
-This project is intended for **learning and educational purposes**.
+This project is intended for **learning and educational purposes only**.
 
 ---
 
-### ⭐ If you find this helpful, feel free to star the repository!
+## ⭐ Support
+
+If you find this repository helpful:
+
+* ⭐ Star the repo
+* 🍴 Fork it
+* 📢 Share with other learners
